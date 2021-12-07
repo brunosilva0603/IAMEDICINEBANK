@@ -2,26 +2,24 @@ import 'cliente.dart';
 
 class ContaCorrente {
   late Cliente titular;
-  int agencia = 145;
-  late int conta;
-  late double _saldo = 20.0;
-  double chequeEspecial = -100.0;
+  late int conta, agencia = 145;
+  double chequeEspecial = -100.0, _saldo = 20.0;
 
-  void definirSaldo(double novoSaldo) {
+  double get saldo {
+    return _saldo;
+  }
+
+  set saldo(double novoSaldo) {
     if (novoSaldo >= chequeEspecial) {
-      this._saldo = novoSaldo;
+      _saldo = novoSaldo;
     } else {
       print(
-          "Erro! Tentei mudar o saldo para algo menor que o cheque especial! !");
+          "Tentei modificar o valor de saldo para outro valor menor que o cheque especial.");
     }
   }
 
-  double obterSaldo() {
-    return this._saldo;
-  }
-
   bool verificaSaldo(double valor) {
-    if (this._saldo - valor < chequeEspecial) {
+    if (this.saldo - valor < chequeEspecial) {
       print("Sem saldo suficiente.");
       return false;
     } else {
@@ -34,7 +32,7 @@ class ContaCorrente {
     if (!verificaSaldo(valorDeTransferencia)) {
       return false;
     } else {
-      this._saldo -= valorDeTransferencia;
+      this.saldo -= valorDeTransferencia;
       ContaDestino.deposito(valorDeTransferencia);
       return true;
     }
@@ -44,13 +42,13 @@ class ContaCorrente {
     if (!verificaSaldo(valorDoSaque)) {
       return false;
     } else {
-      this._saldo -= valorDoSaque;
+      this.saldo -= valorDoSaque;
       return true;
     }
   }
 
   double deposito(double valorDoDeposito) {
-    this._saldo += valorDoDeposito;
-    return this._saldo;
+    this.saldo += valorDoDeposito;
+    return this.saldo;
   }
 }
