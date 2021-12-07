@@ -5,7 +5,7 @@ void main() {
   ContaCorrente contaDaAmanda = ContaCorrente();
   //ContaCorrente contaDoTiago = ContaCorrente();
 
-  contaDaAmanda.definirSaldo(-101);
+  contaDaAmanda.definirSaldo(-110);
 
-  print(contaDaAmanda.obterSaldo);
+  print(contaDaAmanda.obterSaldo());
 }

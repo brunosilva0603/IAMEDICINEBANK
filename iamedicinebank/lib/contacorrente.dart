@@ -8,7 +8,12 @@ class ContaCorrente {
   double chequeEspecial = -100.0;
 
   void definirSaldo(double novoSaldo) {
-    this._saldo = novoSaldo;
+    if (novoSaldo >= chequeEspecial) {
+      this._saldo = novoSaldo;
+    } else {
+      print(
+          "Erro! Tentei mudar o saldo para algo menor que o cheque especial! !");
+    }
   }
 
   double obterSaldo() {
