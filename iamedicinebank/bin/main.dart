@@ -2,10 +2,8 @@ import '../lib/contacorrente.dart';
 //import '../lib/cliente.dart';
 
 void main() {
-  ContaCorrente contaDaAmanda = ContaCorrente();
+  ContaCorrente contaDaAmanda = ContaCorrente(123, 12345678);
   //ContaCorrente contaDoTiago = ContaCorrente();
 
-  contaDaAmanda.agencia = 12345;
-
-  print(contaDaAmanda.agencia);
+  print('${contaDaAmanda.agencia}\n' "${contaDaAmanda.conta}");
 }
