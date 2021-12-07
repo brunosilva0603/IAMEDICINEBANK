@@ -2,7 +2,10 @@ import 'cliente.dart';
 
 class ContaCorrente {
   late Cliente titular;
-  late int conta, agencia = 145;
+  late int conta, _agencia = 145;
+  int get agencia => _agencia;
+  set agencia(int novaAgencia) => {_agencia = novaAgencia};
+
   double chequeEspecial = -100.0, _saldo = 20.0;
 
   double get saldo {
