@@ -3,7 +3,10 @@ import 'cliente.dart';
 class ContaCorrente {
   ContaCorrente(int novaAgencia, this.conta) {
     if (novaAgencia > 0) _agencia = novaAgencia;
+    totalDeContasCorrentes++;
   }
+
+  static int totalDeContasCorrentes = 0;
 
   late Cliente titular;
   late int conta, _agencia = 145;
